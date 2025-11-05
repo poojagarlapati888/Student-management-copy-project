@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Student Data</title>
+    <style>
+        th,td{
+            margin: 10px;
+            padding: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body style="font-family:Arial;text-align:center" class="data">
+    <h1>Student Data</h1>
+    <table border="2" align="center" style="border-collapse: collapse;">
+        <tr>
+            <th>sid</th>
+            <th>sname</th>
+            <th>sbranch</th>
+            <th>smarks</th>
+            <th>spno</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+        
+        {%for s in students%}
+             <tr>
+                <td>{{s[0]}}</td>
+                <td>{{s[1]}}</td>
+                <td>{{s[2]}}</td>
+                <td>{{s[3]}}</td>
+                <td>{{s[4]}}</td>
+                <td><a href="/edit/{{s[0]}}">Edit</a></td>
+                <td><a href="/delete/{{s[0]}}" onclick="return confirm('Do you really want to delete?');">Delete</a></td>
+             </tr>
+        {%endfor%}
+    </table>
+    <h1><a href="/">Register Another Student</a></h1>
+</body>
+</html>?
